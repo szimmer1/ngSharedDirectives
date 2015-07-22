@@ -23,7 +23,8 @@
             return {
                 restrict: 'E',
                 scope: {
-                    dataArray: "=labappdata"
+                    dataArray: "=labappdata",
+                    _selected: "=labappselected"
                 },
                 templateUrl: 'table.html',
                 link: function(scope, ele, attr, ctrl) {
@@ -34,9 +35,9 @@
                         scope.props = scope.props && _.difference(scope.props, scope.excludes);
                     })
 
-                    scope.selected;
+                    scope.selected = scope._selected = null;
                     scope.select = function(obj) {
-                        scope.selected = obj;
+                        scope.selected = scope._selected = obj;
                     };
                 }
             }
